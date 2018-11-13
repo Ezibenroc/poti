@@ -121,6 +121,7 @@ void poti_user_AddVariable (const int unique, double timestamp, const char *cont
 void poti_user_SubVariable (const int unique, double timestamp, const char *container, const char *type, double value, int extra, ...);
 void poti_user_SetState (const int unique, double timestamp, const char *container, const char *type, const char *value, int extra, ...);
 void poti_user_PushState (const int unique, double timestamp, const char *container, const char *type, const char *value, int extra, ...);
+void poti_user_PushState_buffer (const int unique, double timestamp, const char *container, const char *type, const char *value, int extra, char *buffer_extra[]);
 void poti_user_PopState (const int unique, double timestamp, const char *container, const char *type, int extra, ...);
 void poti_user_ResetState (const int unique, double timestamp, const char *container, const char *type, int extra, ...);
 void poti_user_StartLink (const int unique, double timestamp, const char *container, const char *type, const char *sourceContainer, const char *value, const char *key, int extra, ...);

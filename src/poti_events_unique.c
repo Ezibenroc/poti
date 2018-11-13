@@ -228,6 +228,21 @@ void poti_user_PushState (const int unique, double timestamp, const char *contai
   EXTRAFIELDS();
 }
 
+void poti_user_PushState_buffer (const int unique, double timestamp, const char *container, const char *type, const char *value, int extra, char *buffer_extra[])
+{
+  char *buffer = NULL;
+  print_event_type (unique);
+  fprintf(paje_file, " %.9f", paje_event_timestamp(timestamp));
+  fprintf(paje_file, " %s", container);
+  fprintf(paje_file, " %s", type);
+  fprintf(paje_file, " %s", PFS(value, &buffer));
+  free(buffer);
+  for (int i = 0; i < extra; i++){
+    fprintf(paje_file, " %s", buffer_extra[i]);
+  }
+  fprintf(paje_file, "\n");
+}
+
 void poti_user_PopState (const int unique, double timestamp, const char *container, const char *type, int extra, ...)
 {
   print_event_type (unique);
